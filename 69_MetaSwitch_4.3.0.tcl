@@ -1976,7 +1976,7 @@ TESTCASE 201103
     #Check on Phone A if the number typed is of Phone B
 	#@###expectTextCheck SUBA,Do.Number,GET_MATCHTEXT+JOCKER+SUBB.number+JOCKER  ' m1s57a
     #Check if Phone B is ringing on from phone A's Handset
-	#expectMsgAdd SUBA,Do.InbandTone,InbandTone.Alerting  ' m1s57a
+	expectMsgAdd SUBA,Do.InbandTone,InbandTone.Alerting  ' m1s57a
     #User of Phone B is hearing a ringing tone
 	#@#expectMsgAdd SUBB,Do.Ringing,Ringing.Yes  ' m1s57b 
     expectMsgAdd SUBB,Do.Ringing,Ringing.Yes  ' m1s57b
@@ -2096,7 +2096,7 @@ TESTCASE 201104
 	expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
     expectMsgAdd SUBA,Do.Connected,Connected.No  ' m1s57a
     expectMsgAdd SUBA,Do.InbandTone,InbandTone.Disconnect  ' m1s57a
-    #expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
+    expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
     wait 1000
 	expectMsgWait
 	'expectMsgAdd SUBA,Do.Hook,Hook.On  ' m1s57a
@@ -2183,13 +2183,13 @@ TESTCASE 201105
     #Check if Phone B is hooked ON 
 	expectMsgAdd SUBB,Do.Hook,Hook.On  ' m1s57b
     #Check if both Phone A and Phone B are disconnected
-	expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
+	expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b 'abscccccccc
     expectMsgAdd SUBA,Do.Connected,Connected.No  ' m1s57a
 	#Check if LED's are OFF
 	expectMsgAdd SUBA,Do.KeyL1,Key.LightOff  ' m1s57a
 	expectMsgAdd SUBB,Do.KeyL1,Key.LightOff  ' m1s57b
     expectMsgAdd SUBA,Do.InbandTone,InbandTone.Disconnect  ' m1s57a
-    #expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
+    expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
     wait 1000
 	expectMsgWait
 	'expectMsgAdd SUBA,Do.Hook,Hook.On  ' m1s57a
@@ -2404,7 +2404,8 @@ TESTCASE 201108
     expectMsgAdd SUBA,Do.Hook,Hook.On  ' m1s57a
     #Check if Phones are not connected anymore
 	expectMsgAdd SUBA,Do.Connected,Connected.No  ' m1s57a
-    expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
+ 
+	expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
     expectMsgAdd SUBB,Do.InbandTone,InbandTone.Disconnect  ' m1s57b
     #expectMsgAdd SUBB,Do.InbandTone,InbandTone.Quiet  ' m1s57b
     #Press Goodbye
@@ -2470,6 +2471,7 @@ TESTCASE 201109
 	#press GoodBye from Phone A
     expectMsgSend SUBA,Do.PredefKeys,PredefKeys.No,"16: "  ' m1s57a  ' pseudo
     expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
+	 expectMsgAdd SUBA,Do.InbandTone,InbandTone.Disconnect  ' m1s57a
     expectMsgAdd SUBB,Do.Ringing,Ringing.Quiet  ' m1s57b
     expectMsgWait "20: "    
     expectMsgWait
@@ -2543,7 +2545,7 @@ TESTCASE 201110
 	expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
     expectMsgAdd SUBA,Do.Connected,Connected.No  ' m1s57a
     expectMsgAdd SUBA,Do.InbandTone,InbandTone.Disconnect  ' m1s57a
-    #expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
+    expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57a
     expectMsgWait "28: "
     expectMsgSend SUBA,Do.PredefKeys,PredefKeys.No,"31: "  ' m1s57a  ' pseudo
     expectMsgWait
@@ -2836,7 +2838,7 @@ TESTCASE 201114
 	expectMsgAdd SUBA,Do.Connected,Connected.No  ' m1s57a
     expectMsgAdd SUBB,Do.Connected,Connected.No  ' m1s57b
     expectMsgAdd SUBA,Do.InbandTone,InbandTone.Disconnect  ' m1s57b
-    #expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57b
+    expectMsgAdd SUBA,Do.InbandTone,InbandTone.Quiet  ' m1s57b
     #Press Goodbye
     expectMsgSend SUBB,Do.PredefKeys,PredefKeys.No,"37: "  ' m1s57b  ' pseudo
     expectMsgSend SUBA,Do.PredefKeys,PredefKeys.No,"38: "  ' m1s57a  ' pseudo
